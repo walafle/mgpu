@@ -1,0 +1,109 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Rationale &mdash; mgpu v0.2 alpha documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.2 alpha',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="mgpu v0.2 alpha documentation" href="index.html" />
+    <link rel="prev" title="Tutorial" href="tutorial.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="tutorial.html" title="Tutorial"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">mgpu v0.2 alpha documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body">
+            
+  <div class="section" id="rationale">
+<h1>Rationale<a class="headerlink" href="#rationale" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#invoke-limitations" id="id1">Invoke Limitations</a></li>
+<li><a class="reference internal" href="#mgpu-max-devices-vs-mgpu-num-devices" id="id2">MGPU_MAX_DEVICES vs MGPU_NUM_DEVICES</a></li>
+<li><a class="reference internal" href="#device-identification-or-rank-vs-id" id="id3">Device Identification or Rank vs ID</a></li>
+<li><a class="reference internal" href="#device-location-information" id="id4">Device Location Information</a></li>
+</ul>
+</div>
+<div class="section" id="invoke-limitations">
+<h2><a class="toc-backref" href="#id1">Invoke Limitations</a><a class="headerlink" href="#invoke-limitations" title="Permalink to this headline">¶</a></h2>
+<p>The kernel calling subsystem uses the Boost.Bind library extensively. For this
+reason and due to C++ limitations, invoke functions take their arguments by
+reference and cannot, therefore, accept non-const temporaries or literal
+constants. This limitation in the current C++ standard is called the forwarding
+problem.</p>
+</div>
+<div class="section" id="mgpu-max-devices-vs-mgpu-num-devices">
+<h2><a class="toc-backref" href="#id2">MGPU_MAX_DEVICES vs MGPU_NUM_DEVICES</a><a class="headerlink" href="#mgpu-max-devices-vs-mgpu-num-devices" title="Permalink to this headline">¶</a></h2>
+<p>The MGPU configuration provides two defines, MGPU_MAX_DEVICES and
+MGPU_NUM_DEVICES. The former is the number of devices the library supports at
+most. The latter is a number determined for the current platform at compile-time
+and is not accurate or reliable binaries are moved between systems with
+different device configurations.</p>
+</div>
+<div class="section" id="device-identification-or-rank-vs-id">
+<h2><a class="toc-backref" href="#id3">Device Identification or Rank vs ID</a><a class="headerlink" href="#device-identification-or-rank-vs-id" title="Permalink to this headline">¶</a></h2>
+<p>A device thread is bound to a physical device id (<tt class="docutils literal"><span class="pre">mgpu::dev_id_t</span></tt>). The
+device bound to device thread 0, which must not be the device with id 0 is the
+device rank 0 (<tt class="docutils literal"><span class="pre">mgpu::dev_rank_t</span></tt>).</p>
+</div>
+<div class="section" id="device-location-information">
+<h2><a class="toc-backref" href="#id4">Device Location Information</a><a class="headerlink" href="#device-location-information" title="Permalink to this headline">¶</a></h2>
+<p>All types that are only concerned with one device (all non-segmented types) are
+unaware of where they are located. They just exist somewhere, mainly in the
+context they were created in. The only exception is the device pointer. You may
+ask the device id from a device pointer (<tt class="docutils literal"><span class="pre">mgpu::dev_ptr::dev_id()</span></tt>).
+Segmented types always have rank/location information.</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="tutorial.html" title="Tutorial"
+             >previous</a> |</li>
+        <li><a href="index.html">mgpu v0.2 alpha documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Sebastian Schaetz.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

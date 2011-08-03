@@ -1,0 +1,127 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MGPU &mdash; mgpu v0.2 alpha documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.2 alpha',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="mgpu v0.2 alpha documentation" href="#" />
+    <link rel="next" title="Getting Started" href="gettingstarted.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gettingstarted.html" title="Getting Started"
+             accesskey="N">next</a> |</li>
+        <li><a href="#">mgpu v0.2 alpha documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body">
+            
+  <div class="section" id="mgpu">
+<h1>MGPU<a class="headerlink" href="#mgpu" title="Permalink to this headline">¶</a></h1>
+<p><strong>Sebastian Schaetz</strong></p>
+<p>Copyright © 2011 Sebastian Schaetz, Distributed under the Boost Software
+License, Version 1.0. (See accompanying file LICENSE.txt or copy at
+<a class="reference external" href="http://www.boost.org/LICENSE_1_0.txt">http://www.boost.org/LICENSE_1_0.txt</a>)</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#configure-and-build">Configure and Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#installing-and-using-mgpu">Installing and Using MGPU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#testing-mgpu">Testing MGPU</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#containers-and-data-transfer">Containers and Data Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#invoking-kernels">Invoking Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#synchronization">Synchronization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#running-functions-in-device-contexts">Running Functions in Device Contexts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#advanced-data-transfer">Advanced Data Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#distributed-batched-ffts">Distributed Batched FFTs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rationale.html">Rationale</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rationale.html#invoke-limitations">Invoke Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rationale.html#mgpu-max-devices-vs-mgpu-num-devices">MGPU_MAX_DEVICES vs MGPU_NUM_DEVICES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rationale.html#device-identification-or-rank-vs-id">Device Identification or Rank vs ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rationale.html#device-location-information">Device Location Information</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The MGPU library strives to simplify the implementation of high performance
+applications and algorithms on multi-GPU systems. Its main goal is both to
+abstract platform dependent functions and vendor specific APIs, as well as
+simplifying communication between different compute elements. The library is
+currently an alpha release containing only limited yet already useful
+functionality such as</p>
+<ul class="simple">
+<li>segmented device vector (one vector spread across different GPUs)</li>
+<li>communication functions (simple and adaptable copy and broadcast)</li>
+<li>methods to dispatch jobs to GPUs</li>
+<li>multi-GPU management and synchronization</li>
+<li>basic support for FFT and BLAS functions</li>
+<li>vendor-specific API abstraction (currently only CUDA support)</li>
+</ul>
+<p>The library is currently tested on Ubuntu 10.04.3 LTS with gcc 4.4.3 and compute
+capability 2.0 CUDA devices.</p>
+<p>Things to expect in the near future:</p>
+<ul class="simple">
+<li>more complete documentation/reference</li>
+<li>more tested platforms, Windows support</li>
+<li>more complete FFT/BLAS support</li>
+<li>reduce/reduce_all communication functions</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gettingstarted.html" title="Getting Started"
+             >next</a> |</li>
+        <li><a href="#">mgpu v0.2 alpha documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Sebastian Schaetz.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>
