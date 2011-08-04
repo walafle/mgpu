@@ -1,0 +1,69 @@
+#ifndef MGPU_CONFIG_HPP
+#define MGPU_CONFIG_HPP
+
+/**
+ * @file config.hpp.in
+ *
+ * This header contains some configuration options. The values are filled by
+ * cmake and the file is stored as config.hpp.
+ */
+
+/// version number
+#define MGPU_VERSION @MGPU_VERSION@
+
+
+// device configuration information -----
+
+/// number of devices in system
+#define MGPU_NUM_DEVICES @MGPU_NUM_DEVICES@
+
+/// p2p capabilities
+#if MGPU_NUM_DEVICES >= 1
+namespace mgpu { 
+static const bool p2p_capabilities [][MGPU_NUM_DEVICES] = 
+@MGPU_P2P_CAPABILITIES@; 
+} // namespace mgpu
+#endif
+
+/// is unified addressing supported by the devices
+//#define MGPU_CUDA_SUPPORT_UNIFIED_ADDRESSING
+
+/// is double supported by devices
+//#define MGPU_DEVICE_DOUBLE_SUPPORT
+
+
+// library behaviour -----
+
+/// type of queue that should be used in runtime
+#define MGPU_RUNTIME_QUEUE_TYPE @MGPU_RUNTIME_QUEUE_TYPE@
+
+/// backend that should be used
+#define MGPU_BACKEND @MGPU_BACKEND@
+
+/// backend name
+#define MGPU_USING_@MGPU_BACKEND_UPPER@_BACKEND
+
+/// number of parameters invoke 
+#define MGPU_DISP_MAX_PARAM_ARITY 20
+
+/// number of devices in system
+#define MGPU_MAX_DEVICES 8
+
+
+
+// cuda backend configuration -----
+
+/// number of threads used for reduction
+#define MGPU_CUDA_DEVICE_REDUCE_NUM_THREADS 256
+
+/// types for which reductio code is created for
+#define MGPU_CUDA_DEVICE_REDUCE_TYPES                                          \
+  (float)(double)(std::complex<float>)(std::complex<double>)(int)
+
+// debug mode synchronizes all operations to return errors at the call site
+//#define MGPU_DEBUG
+
+// optimization to not allow library functions to change the device scope
+//#define MGPU_DISALLOW_SET_SCOPED
+
+#endif // MGPU_CONFIG_HPP

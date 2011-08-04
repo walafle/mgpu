@@ -1,0 +1,9 @@
+build
+_build
+.project
+.cproject
+*.exe
+*.obj
+*~
+.settings
+include/mgpu/config.hpp
