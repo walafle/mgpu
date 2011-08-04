@@ -10,7 +10,7 @@ packages:
 
 * `CMake <http://www.cmake.org/cmake/resources/software.html>`_ 
   (tested with 2.8)
-* `Boost <http://www.boost.org/users/download/>`_ (tested with 1.45)
+* `Boost <http://www.boost.org/users/download/>`_ (tested with 1.45 and 1.47)
 * `CUDA <http://developer.nvidia.com/cuda-toolkit-40>`_ (tested with 4.0)
 
 From the Boost collection, the library Boost.Thread must be built. If you would
@@ -19,11 +19,12 @@ like to run unit tests the Boost.Test library should also be built beforehand.
 The library compiles on the following platforms:
 
 * g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3, 64bit
-* Visual Studio 2010, 64bit
+* Visual Studio 2010, 64bit (compilation test only)
 
 The library was tested on the following systems:
 
 * 8x GeForce GTX 580, 64bit Ubuntu
+* 1x GeForce 9300 GE, 64bit Ubuntu
 
 
 Configure and Build
@@ -62,14 +63,16 @@ MGPU root folder and can be edited by hand if necessary.
 After CMake finished, the library can be built calling calling ``make mgpu``
 (Linux platform) or ``nmake mgpu`` (Windows). CMake can also
 generate Visual Studio project files if the proper generator is chosen. More 
-information about CMake generators can be found `here <http://www.vtk.org/Wiki/CMake_Generator_Specific_Information>`_.
+information about CMake generators can be found 
+`here <http://www.vtk.org/Wiki/CMake_Generator_Specific_Information>`_.
 
 
 Installing and Using MGPU
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There are currently no means of installing the MGPU library. To use the library
-you simply have to link the :file:`libmgpu` library and add the include path :file:`mgpu-root/inlucde`.
+you simply have to link the :file:`libmgpu` library and add the include path 
+:file:`mgpu-root/inlucde`.
 
 
 Testing MGPU

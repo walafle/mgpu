@@ -22,6 +22,7 @@ environment constructor allows you to do just that, as it accepts a
 
 .. literalinclude:: ../example/environment.cpp
   :language: c++
+  :lines: 8-
 
 
 Since it is imperative that the ``mgpu::environment`` instance outlives any
@@ -52,7 +53,8 @@ is switched temporarily for a scope using an instance of the
 
 .. literalinclude:: ../example/simple_transfer.cpp
   :language: c++
-
+  :lines: 8-
+  
 Data is copied from host memory to device memory, from there to another device
 and then back to host memory. Notice that the interface of the ``mgpu::copy``
 function is always the same, regardless of the arguments that are passed. It 
@@ -65,7 +67,9 @@ Segmented Device Vector
 -----------------------
 
 On to a more involved example. The MGPU library draws many ideas from the
-*Segmented Iterator concept*. It fits multi-GPU architectures well since such
+`Segmented Iterator concept 
+<http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.101.1482>`_. 
+It fits multi-GPU architectures well since such
 systems are composed of segments of discontinuous memory. The most important
 class in this regard is the segmented device vector or ``mgpu::seg_dev_vector``.
 It enables you to allocate a large vector, cut the vector in slices and
@@ -74,7 +78,8 @@ example illustrates this feature:
 
 .. literalinclude:: ../example/simple_seg_dev_vector.cpp
   :language: c++
-
+  :lines: 8-
+  
 A segmented vector ``dev`` is allocated - it's size is the size of the
 environment which is the number of devices in the system. The ``dev`` object 
 is composed of multiple vectors, one vector on each device. The size of each 
@@ -140,6 +145,7 @@ facilities of the MGPU library.
 
 .. literalinclude:: ../example/invoke_kernel.cpp
   :language: c++
+  :lines: 8-
   
 The ``kernel_caller`` function is a stub that is invoked in the device thread
 and context. It can launch the desired kernel itself on the device. Passing
@@ -183,6 +189,7 @@ vector across all devices.
 
 .. literalinclude:: ../example/broadcast.cpp
   :language: c++
+  :lines: 8-
 
 The host vector is only of size 1. It's content is broadcasted to the segmented
 device vector: each segment will contain the same data after the broadcast. The
@@ -200,6 +207,7 @@ are distributed across devices.
 
 .. literalinclude:: ../example/fft.cpp
   :language: c++
+  :lines: 8-
   
 15 2D FFTs each of size 128*128 are calculated in parallel on as many devices
 as are available in the system. Input and output buffers are first allocated

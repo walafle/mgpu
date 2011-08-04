@@ -159,7 +159,8 @@ with traits for <tt class="docutils literal"><span class="pre">std::vector</span
 <div class="section" id="segmented-device-vector">
 <h3>Segmented Device Vector<a class="headerlink" href="#segmented-device-vector" title="Permalink to this headline">¶</a></h3>
 <p>On to a more involved example. The MGPU library draws many ideas from the
-<em>Segmented Iterator concept</em>. It fits multi-GPU architectures well since such
+<a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.101.1482">Segmented Iterator concept</a>.
+It fits multi-GPU architectures well since such
 systems are composed of segments of discontinuous memory. The most important
 class in this regard is the segmented device vector or <tt class="docutils literal"><span class="pre">mgpu::seg_dev_vector</span></tt>.
 It enables you to allocate a large vector, cut the vector in slices and

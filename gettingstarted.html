@@ -60,7 +60,7 @@ packages:</p>
 <ul class="simple">
 <li><a class="reference external" href="http://www.cmake.org/cmake/resources/software.html">CMake</a>
 (tested with 2.8)</li>
-<li><a class="reference external" href="http://www.boost.org/users/download/">Boost</a> (tested with 1.45)</li>
+<li><a class="reference external" href="http://www.boost.org/users/download/">Boost</a> (tested with 1.45 and 1.47)</li>
 <li><a class="reference external" href="http://developer.nvidia.com/cuda-toolkit-40">CUDA</a> (tested with 4.0)</li>
 </ul>
 <p>From the Boost collection, the library Boost.Thread must be built. If you would
@@ -68,11 +68,12 @@ like to run unit tests the Boost.Test library should also be built beforehand.</
 <p>The library compiles on the following platforms:</p>
 <ul class="simple">
 <li>g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3, 64bit</li>
-<li>Visual Studio 2010, 64bit</li>
+<li>Visual Studio 2010, 64bit (compilation test only)</li>
 </ul>
 <p>The library was tested on the following systems:</p>
 <ul class="simple">
 <li>8x GeForce GTX 580, 64bit Ubuntu</li>
+<li>1x GeForce 9300 GE, 64bit Ubuntu</li>
 </ul>
 <div class="section" id="configure-and-build">
 <h2><a class="toc-backref" href="#id1">Configure and Build</a><a class="headerlink" href="#configure-and-build" title="Permalink to this headline">¶</a></h2>
@@ -102,12 +103,14 @@ MGPU root folder and can be edited by hand if necessary.</p>
 <p>After CMake finished, the library can be built calling calling <tt class="docutils literal"><span class="pre">make</span> <span class="pre">mgpu</span></tt>
 (Linux platform) or <tt class="docutils literal"><span class="pre">nmake</span> <span class="pre">mgpu</span></tt> (Windows). CMake can also
 generate Visual Studio project files if the proper generator is chosen. More
-information about CMake generators can be found <a class="reference external" href="http://www.vtk.org/Wiki/CMake_Generator_Specific_Information">here</a>.</p>
+information about CMake generators can be found
+<a class="reference external" href="http://www.vtk.org/Wiki/CMake_Generator_Specific_Information">here</a>.</p>
 </div>
 <div class="section" id="installing-and-using-mgpu">
 <h2><a class="toc-backref" href="#id2">Installing and Using MGPU</a><a class="headerlink" href="#installing-and-using-mgpu" title="Permalink to this headline">¶</a></h2>
 <p>There are currently no means of installing the MGPU library. To use the library
-you simply have to link the <tt class="file docutils literal"><span class="pre">libmgpu</span></tt> library and add the include path <tt class="file docutils literal"><span class="pre">mgpu-root/inlucde</span></tt>.</p>
+you simply have to link the <tt class="file docutils literal"><span class="pre">libmgpu</span></tt> library and add the include path
+<tt class="file docutils literal"><span class="pre">mgpu-root/inlucde</span></tt>.</p>
 </div>
 <div class="section" id="testing-mgpu">
 <h2><a class="toc-backref" href="#id3">Testing MGPU</a><a class="headerlink" href="#testing-mgpu" title="Permalink to this headline">¶</a></h2>
