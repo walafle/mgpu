@@ -21,6 +21,7 @@ License, Version 1.0. (See accompanying file LICENSE.txt or copy at
    
     gettingstarted
     tutorial
+    examples
     rationale
     
 Introduction
