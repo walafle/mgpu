@@ -24,8 +24,13 @@ class dev_range
     typedef dev_iterator<Value>               iterator;
     typedef const dev_iterator<Value>         const_iterator;
     typedef Value                             value_type;
+
     typedef dev_ptr<Value>                    pointer;
     typedef const dev_ptr<Value>              const_pointer;
+
+    typedef Value *                           raw_pointer;
+    typedef Value * const                     const_raw_pointer;
+
     typedef std::size_t                       size_type;
 
   public:
@@ -59,6 +64,12 @@ class dev_range
 
     /// access constant pointer
     const_pointer get_pointer() const { return it_.get_pointer(); }
+
+    /// access raw pointer
+    raw_pointer get_raw_pointer() { return it_.get_raw_pointer(); }
+
+    /// access constant raw pointer
+    const_raw_pointer get_raw_pointer() const { return it_.get_raw_pointer(); }
 
   private:
 

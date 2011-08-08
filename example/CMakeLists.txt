@@ -44,7 +44,7 @@ MACRO(MGPU_REGISTER_EXAMPLE_FFT examplename file0)
   add_test(${examplename} ${binaryname})
 ENDMACRO()
 
-
+MGPU_REGISTER_EXAMPLE(axpy axpy.cu)
 MGPU_REGISTER_EXAMPLE(broadcast broadcast.cpp)
 MGPU_REGISTER_EXAMPLE(environment environment.cpp)
 MGPU_REGISTER_EXAMPLE_FFT(fft fft.cpp)

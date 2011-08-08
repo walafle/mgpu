@@ -83,6 +83,14 @@ class dev_iterator
     /// access constant pointer
     const_pointer get_pointer() const { return resource_.get() + offset_; }
 
+    /// access raw pointer
+    raw_pointer get_raw_pointer()
+    { return resource_.get().get_raw_pointer() + offset_; }
+
+    /// access constant raw pointer
+    const_raw_pointer get_raw_pointer() const
+    { return resource_.get().get_raw_pointer() + offset_; }
+
  private:
 
     friend class boost::iterator_core_access;
