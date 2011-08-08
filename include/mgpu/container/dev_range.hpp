@@ -13,6 +13,7 @@
  * @file dev_range.hpp
  */
 
+#include <mgpu/container/dev_iterator.hpp>
 
 namespace mgpu
 {

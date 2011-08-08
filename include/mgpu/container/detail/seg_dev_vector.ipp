@@ -21,6 +21,7 @@
 #include <mgpu/core/ref.hpp>
 #include <mgpu/invoke.hpp>
 #include <mgpu/synchronization.hpp>
+#include <mgpu/backend/dev_allocation.hpp>
 
 namespace mgpu
 {
@@ -118,7 +119,8 @@ void seg_dev_vector<T, Alloc>::set_null()
 {
   for(std::size_t segment=0; segment<segments_; segment++)
   {
-    invoke(&dev_vector<T, Alloc>::set_null, storage_[segment], ranks_[segment]);
+    invoke(backend::dev_set<T>, storage_[segment].get(), 0,
+      sizes_[segment], ranks_[segment]);
   }
 }
 
