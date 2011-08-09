@@ -1,4 +1,3 @@
-====
 MGPU
 ====
 
@@ -12,7 +11,7 @@ functionality. The documentation is available
 
 
 News
-====
+----
 
 * 2011-08-04 MGPU v0.1 has been released, download
   [bz2](https://github.com/sschaetz/mgpu/raw/archives/mgpu_0_1.tar.bz2) or
@@ -20,7 +19,7 @@ News
   or fork the code from github
 
 Examples
-========
+--------
 
 The following example shows how a batched FFT can be calculated in parallel on 
 all available GPUs in a system. 
