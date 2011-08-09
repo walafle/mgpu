@@ -25,7 +25,9 @@ Examples
 The following example shows how a batched FFT can be calculated in parallel on 
 all available GPUs in a system. 
 
-.. code-block:: cpp
+
+
+.. code-block:: c++
   
   #include <vector>
   #include <mgpu/fft.hpp>
@@ -68,10 +70,13 @@ all available GPUs in a system.
   }
 
 
+
 This example shows how a vector can be distributed across all devices and how
 a kernel can be invoked to operate on the local data.
 
-.. code-block:: cpp
+
+
+.. code-block:: c++
 
   #include <stdlib.h>
   #include <algorithm>
@@ -123,6 +128,7 @@ a kernel can be invoked to operate on the local data.
       // result is now in Y
     }
   }
+
 
 
 Please refer to the `documentation <http://sschaetz.github.com/mgpu/>`_ 
